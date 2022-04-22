@@ -3,7 +3,6 @@ const path = require("path")
 const express = require("express");
 
 const app = express();
-const port = 80;
 
 // words.txt has the top 1500 filtered most common words
 const wordsAndFrequency = fs.readFileSync(path.resolve(__dirname, 'words.txt'), 'utf8').split("\r\n")
@@ -134,4 +133,4 @@ app.get("/api/wordsbylength", (req, res) => {
   res.json(apiBase)
 });
 
-app.listen(port);
+app.listen(process.env.PORT || 3000);
