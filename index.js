@@ -1,10 +1,9 @@
-require("dotenv").config();
 const fs = require("fs")
 const path = require("path")
 const express = require("express");
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = 80;
 
 // words.txt has the top 1500 filtered most common words
 const wordsAndFrequency = fs.readFileSync(path.resolve(__dirname, 'words.txt'), 'utf8').split("\r\n")
