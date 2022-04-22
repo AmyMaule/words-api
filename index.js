@@ -16,7 +16,7 @@ const allWords = wordsAndFrequency.map(word => word.split(" ")[0]);
 const getByPosition = (start, end) => {
   const wordsByPosition = [];
 
-  for (let i = start; i <= end; i++) {
+  for (let i = start; i <= end; i++) { 
     if (allWords[i]) wordsByPosition.push(allWords[i]);
   }
   return wordsByPosition;
