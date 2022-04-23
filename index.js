@@ -1,7 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 const express = require("express");
-
+import cors from 'cors';
 const app = express();
 
 // words.txt has the top 1500 filtered most common words
@@ -113,6 +113,9 @@ const apiBase = {
   },
   "version": "1.0.1"
 };
+
+// use cors middleware
+app.use(cors());
 
 app.get("/api/words", (req, res) => {
   apiBase["words_by_position"] = getWordsByPosition();
