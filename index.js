@@ -1,7 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 const express = require("express");
-import cors from 'cors';
+const cors = require('cors');
 const app = express();
 
 // words.txt has the top 1500 filtered most common words
