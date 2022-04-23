@@ -118,22 +118,26 @@ const apiBase = {
 app.use(cors());
 
 app.get("/api/words", (req, res) => {
-  apiBase["words_by_position"] = getWordsByPosition();
-  apiBase["words_by_length"] = getWordsByLength();
-  res.json(apiBase)
+  const wordsAPIBase = JSON.parse(JSON.stringify(apiBase));
+  wordsAPIBase["words_by_position"] = getWordsByPosition();
+  wordsAPIBase["words_by_length"] = getWordsByLength();
+  res.json(wordsAPIBase);
 });
 
 app.get("/api/wordsbyposition", (req, res) => {
+  const wordsPositionAPIBase = JSON.parse(JSON.stringify(apiBase));
   const { start, end } = req.query;
-  apiBase["words_by_position"] = getWordsByPosition(start, end);
-  res.json(apiBase)
+  wordsPositionAPIBase["words_by_position"] = getWordsByPosition(start, end);
+  res.json(wordsPositionAPIBase);
 });
 
 
 app.get("/api/wordsbylength", (req, res) => {
+  const wordsLengthAPIBase = JSON.parse(JSON.stringify(apiBase));
+  console.log(wordsLengthAPIBase  )
   const { minLength, maxLength } = req.query;
-  apiBase["words_by_length"] = getWordsByLength(minLength, maxLength);
-  res.json(apiBase)
+  wordsLengthAPIBase["words_by_length"] = getWordsByLength(minLength, maxLength);
+  res.json(wordsLengthAPIBase);
 });
 
 app.listen(process.env.PORT || 3000);
